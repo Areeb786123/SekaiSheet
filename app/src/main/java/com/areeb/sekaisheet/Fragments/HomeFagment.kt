@@ -17,7 +17,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class HomeFagment : Fragment(R.layout.fragment_home_fagment),UnsplashPhotoAdapter.OnItemClickListener{
+class HomeFagment : Fragment(R.layout.fragment_home_fagment),
+    UnsplashPhotoAdapter.OnItemClickListener {
     private var _homeFagmentBinding: FragmentHomeFagmentBinding? = null
     private val homeFagmentBinding get() = _homeFagmentBinding!!
     private val viewModel: HomeViewModel by viewModels()
@@ -67,8 +68,8 @@ class HomeFagment : Fragment(R.layout.fragment_home_fagment),UnsplashPhotoAdapte
 
     override fun onItemClick(photo: UnsplashPhoto) {
 
-        val detailsIntent = Intent(activity,DetailsActivity::class.java)
-        detailsIntent.putExtra("photo",photo.urls.regular)
+        val detailsIntent = Intent(activity, DetailsActivity::class.java)
+        detailsIntent.putExtra("photo", photo.urls.regular)
         startActivity(detailsIntent)
     }
 
