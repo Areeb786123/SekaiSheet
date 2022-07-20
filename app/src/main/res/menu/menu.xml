@@ -8,7 +8,7 @@
         ></item>
     <item
         android:title=""
-        android:id="@+id/cateFragment"
+        android:id="@+id/categoryFragment"
         android:icon="@drawable/cate"></item>
 
 

@@ -27,9 +27,9 @@
 
             <ImageView
                 android:id="@+id/wallpaper_img"
-               android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_baseline_image_24"></ImageView>
 
             <TextView

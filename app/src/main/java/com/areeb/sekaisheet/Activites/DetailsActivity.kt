@@ -31,16 +31,19 @@ class DetailsActivity : AppCompatActivity() {
 
     lateinit var detailsActivity: ActivityDetailsBinding
 
-    var urlink:String=""
+    var urlink: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
 
-
-         urlink = intent.getStringExtra("wallpaper_link").toString()
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
+//         urlink = intent.getStringExtra("wallpaper_link").toString()
+        urlink = intent.getStringExtra("photo").toString()
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
         detailsActivity = ActivityDetailsBinding.inflate(layoutInflater)
         val view = detailsActivity.root
@@ -50,11 +53,9 @@ class DetailsActivity : AppCompatActivity() {
     }
 
 
+    private fun setWallpaper() {
 
-
-    private fun setWallpaper(){
-
-        detailsActivity.progressBar.visibility=View.GONE
+        detailsActivity.progressBar.visibility = View.GONE
         Glide.with(this).load(urlink).into(detailsActivity.detailsImage)
 
 
@@ -74,32 +75,31 @@ class DetailsActivity : AppCompatActivity() {
         }
 
 
-
     }
 
-    private fun setWallpaperFun(){
-        val bitmap:Bitmap = detailsActivity.detailsImage.drawable.toBitmap()
+    private fun setWallpaperFun() {
+        val bitmap: Bitmap = detailsActivity.detailsImage.drawable.toBitmap()
         var wallpaperManager = WallpaperManager.getInstance(applicationContext)
-        try{
+        try {
             wallpaperManager.setBitmap(bitmap)
 
-        }catch (e:Exception){
+        } catch (e: Exception) {
             Toast.makeText(this, "Some error occur", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun setLockWallpaperFun(){
-        val bitmap:Bitmap = detailsActivity.detailsImage.drawable.toBitmap()
-        var wallpaperManager= WallpaperManager.getInstance(applicationContext)
+    private fun setLockWallpaperFun() {
+        val bitmap: Bitmap = detailsActivity.detailsImage.drawable.toBitmap()
+        var wallpaperManager = WallpaperManager.getInstance(applicationContext)
 
-        try{
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                wallpaperManager.setBitmap(bitmap,null,true,WallpaperManager.FLAG_LOCK)
-            }else{
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                wallpaperManager.setBitmap(bitmap, null, true, WallpaperManager.FLAG_LOCK)
+            } else {
                 Toast.makeText(this, "error", Toast.LENGTH_SHORT).show()
             }
 
-        }catch (e:Exception){
+        } catch (e: Exception) {
             Toast.makeText(this, "some error occur", Toast.LENGTH_SHORT).show()
         }
     }

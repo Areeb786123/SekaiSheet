@@ -9,19 +9,36 @@
 
     tools:context=".MainActivity">
 
-    <FrameLayout
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/navHostFragmentMain"-->
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:navGraph="@navigation/navigation" />-->
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:id="@+id/FragmentContainer"
-        app:layout_constraintTop_toTopOf="parent"
+
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        ></FrameLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:id="@+id/nav"
+        android:id="@+id/bottomNavigationView"
         android:paddingTop="6dp"
         app:itemIconSize="28dp"
         app:itemIconTint="#5C8DB3"
@@ -31,9 +48,12 @@
         app:menu="@menu/menu"
         android:layout_marginLeft="100dp"
 
+
+        app:navGraph="@navigation/navigation"
         android:layout_marginRight="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="50dp"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
 
 
 
