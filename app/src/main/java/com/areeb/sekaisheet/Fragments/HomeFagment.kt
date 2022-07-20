@@ -6,6 +6,10 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavHost
+import androidx.navigation.NavOptions
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.areeb.sekaisheet.Activites.DetailsActivity
 import com.areeb.sekaisheet.Adapters.UnsplashPhotoAdapter
@@ -29,11 +33,11 @@ class HomeFagment : Fragment(R.layout.fragment_home_fagment),
         _homeFagmentBinding = FragmentHomeFagmentBinding.bind(view)
         getHomeData()
 
-//        homeFagmentBinding.searchBar.setOnClickListener {
-//            val searchIntent = Intent(activity,SearchFragment::class.java)
-//            startActivity(searchIntent)
-//
-//        }
+        homeFagmentBinding.searchBar.setOnClickListener {
+
+            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_searchFragment)
+
+        }
 
 
     }
@@ -59,6 +63,8 @@ class HomeFagment : Fragment(R.layout.fragment_home_fagment),
 
 
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()
