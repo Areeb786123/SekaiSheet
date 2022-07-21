@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment_to_searchFragment">
+    <fragment
+        android:id="@+id/homeFragment_to_searchFragment"
+        android:name="com.areeb.sekaisheet.Fragments.HomeFagment"
+        android:label="fragment_home_fagment"
+        tools:layout="@layout/fragment_home_fagment" >
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.areeb.sekaisheet.Fragments.Catogries"
+        android:label="fragment_catogries"
+        tools:layout="@layout/fragment_catogries" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.areeb.sekaisheet.Fragments.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+</navigation>
